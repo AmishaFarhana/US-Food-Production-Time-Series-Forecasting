@@ -47,3 +47,72 @@ Best validation performance:
 ### 2️⃣ Regression with Trend & Seasonality
 
 Model form:
+Production = Intercept + Trend + Monthly Dummy Variables
+
+
+- Captures long-term movement
+- Significant seasonal effects
+- Moderate predictive accuracy
+
+---
+
+### 3️⃣ Two-Level Forecast (Best Model)
+
+Final Forecast:
+Final = Regression Forecast + MA(4) of Residuals
+
+
+Validation Performance:
+
+- Substantially reduced RMSE
+- Lowest MAPE across regression-based models
+- Outperformed seasonal naïve baseline
+
+This model effectively captured both systematic structure and residual patterns.
+
+---
+
+### 4️⃣ Holt–Winters Exponential Smoothing (ETS)
+
+- Automated ETS selection (`ets(model="ZZZ")`)
+- Compared ETS(A,N,A) and ETS(M,N,A)
+- Strong seasonal capture
+- Slightly higher error than two-level model
+
+---
+
+## 📈 Model Comparison
+
+Evaluated using:
+
+- RMSE (Root Mean Square Error)
+- MAPE (Mean Absolute Percentage Error)
+- Residual diagnostics
+
+Best Overall Model:
+**Two-Level Regression + Residual MA**
+
+---
+
+## 🛠 Tools Used
+
+- R
+- `forecast`
+- `zoo`
+- `ggplot2`
+- `stats`
+
+---
+
+## 📌 Key Takeaways
+
+- Explicit seasonality modeling significantly improves accuracy
+- Residual correction meaningfully reduces forecast error
+- Two-level models can outperform exponential smoothing in structured seasonal data
+- Model validation is essential before final forecasting
+
+---
+
+## 🚀 Final Outcome
+
+Selected model was used to forecast U.S. food production for 2018, delivering the lowest validation error among all approaches.
